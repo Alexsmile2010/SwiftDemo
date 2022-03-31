@@ -1,5 +1,5 @@
 //
-//  LoadingViewController.swift
+//  MainViewController.swift
 //  Wether
 //
 //  Created by Alexey Zayakin on 31.03.2022.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class LoadingViewController: UIViewController {
-
+class MainViewController: BaseViewController {
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpConstraints()
     }
     
 
@@ -26,4 +26,21 @@ class LoadingViewController: UIViewController {
     }
     */
 
+}
+
+extension MainViewController: ViewInitializtion {
+    
+    func setUpConstraints() {
+        
+    }
+    
+    func setUpViewModel() {
+        
+    }
+    
+    func setUpView() {
+        
+    }
+    
+    
 }

@@ -46,7 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func setupInitController(in scene: UIWindowScene) {
-        let initViewController = LoadingViewController()
+        let initViewController = WelcomeViewController()
         let window = UIWindow(windowScene: scene)
         window.rootViewController = initViewController
         self.window = window
