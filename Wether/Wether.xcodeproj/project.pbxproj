@@ -74,6 +74,8 @@
 		288C6BC527F5E4B9001207E7 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 288C6BC127F5E4B9001207E7 /* Poppins-Italic.ttf */; };
 		288C6BC627F5E4B9001207E7 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 288C6BC227F5E4B9001207E7 /* Poppins-Medium.ttf */; };
 		288C6BC727F5E4B9001207E7 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 288C6BC327F5E4B9001207E7 /* Poppins-SemiBold.ttf */; };
+		288C6BC927F6F397001207E7 /* WelcomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BC827F6F397001207E7 /* WelcomeViewControllerViewModel.swift */; };
+		288C6BCC27F6F3D1001207E7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BCB27F6F3D1001207E7 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +147,8 @@
 		288C6BC127F5E4B9001207E7 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		288C6BC227F5E4B9001207E7 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		288C6BC327F5E4B9001207E7 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		288C6BC827F6F397001207E7 /* WelcomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewControllerViewModel.swift; sourceTree = "<group>"; };
+		288C6BCB27F6F3D1001207E7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +207,7 @@
 		280A2CF427F58E1F00789487 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				288C6BCA27F6F3B0001207E7 /* LocationManager */,
 				288C6B5627F5B033001207E7 /* Global */,
 				280A2CFC27F59B4600789487 /* Extensions */,
 			);
@@ -222,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				280A2CF727F58E7100789487 /* WelcomeViewController.swift */,
+				288C6BC827F6F397001207E7 /* WelcomeViewControllerViewModel.swift */,
 			);
 			path = WelcomeViewController;
 			sourceTree = "<group>";
@@ -569,6 +575,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		288C6BCA27F6F3B0001207E7 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				288C6BCB27F6F3D1001207E7 /* LocationManager.swift */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -668,6 +682,7 @@
 				288C6B6427F5B033001207E7 /* AppLayout.swift in Sources */,
 				288C6A6C27F59D99001207E7 /* NetworkEnvironment.swift in Sources */,
 				288C6B9427F5B297001207E7 /* UITableView+Extension.swift in Sources */,
+				288C6BC927F6F397001207E7 /* WelcomeViewControllerViewModel.swift in Sources */,
 				288C6B6127F5B033001207E7 /* DesignSystem+Colors.swift in Sources */,
 				288C6AA727F5A835001207E7 /* DGTXStackView.swift in Sources */,
 				288C6B9E27F5B297001207E7 /* UIViewController+Extension.swift in Sources */,
@@ -697,6 +712,7 @@
 				288C6A5027F59D99001207E7 /* EndPointType.swift in Sources */,
 				288C6B7427F5B22C001207E7 /* ListProtocol.swift in Sources */,
 				280A2CE127F58DD700789487 /* SceneDelegate.swift in Sources */,
+				288C6BCC27F6F3D1001207E7 /* LocationManager.swift in Sources */,
 				288C6BB827F5B7E5001207E7 /* KeyboardPublishers.swift in Sources */,
 				288C6B9827F5B297001207E7 /* SnapKit+Extension.swift in Sources */,
 				288C6B3327F5AF8B001207E7 /* LocalizationManager.swift in Sources */,
@@ -858,6 +874,7 @@
 				DEVELOPMENT_TEAM = 5499XNS6KT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Wether/App/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Test Description";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
@@ -886,6 +903,7 @@
 				DEVELOPMENT_TEAM = 5499XNS6KT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Wether/App/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Test Description";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";

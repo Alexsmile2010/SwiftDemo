@@ -7,7 +7,8 @@
 
 import Foundation
 import Combine
+import CoreLocation
 
 struct GlobalPublishers {
-    
+    static let currentLocation = CurrentValueSubject<CLPlacemark?, Never>(nil)
 }

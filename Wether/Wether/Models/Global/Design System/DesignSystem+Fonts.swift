@@ -82,14 +82,17 @@ extension AppStyle {
     
     enum TextFontType {
         case text14
+        case text18
         case text28
         
         var style: DSFont {
             switch self {
             case .text14:
                 return (.poppins(.regular), .size14)
+            case .text18:
+                return (.poppins(.regular), .size18)
             case .text28:
-                return (FontName.poppins(.regular), FontSize.size28)
+                return (.poppins(.regular), .size28)
             }
         }
     }

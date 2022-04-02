@@ -11,6 +11,8 @@ enum WelcomeLOCKeys: String {
     case hello = "Welcome.hello"
     case welcomeMessage = "Welcome.titleMessage"
     case enableLocation = "Welcome.enableLocation"
+    case updateLocation = "Welcome.updateLocation"
+    case selectLocation = "Welcome.selectLocation"
 }
 
 extension WelcomeLOCKeys: LocalizableKeys {

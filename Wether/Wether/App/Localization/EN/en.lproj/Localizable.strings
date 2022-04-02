@@ -9,3 +9,5 @@
 "Welcome.hello" = "Hello";
 "Welcome.titleMessage" = "Welcome to the Wether App.\nFor better experience please allow to use your location.";
 "Welcome.enableLocation" = "Enable location";
+"Welcome.updateLocation" = "Update location";
+"Welcome.selectLocation" = "Select location";
