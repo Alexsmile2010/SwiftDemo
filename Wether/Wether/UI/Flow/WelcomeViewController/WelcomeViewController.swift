@@ -26,6 +26,7 @@ final class WelcomeViewController: BaseViewController {
         label.setTextColor(.text(.white))
         label.setTextFont(.heading(.headline18))
         label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
     }
     
     private lazy var allowLocationButton = DGTXButton { button in
@@ -35,6 +36,16 @@ final class WelcomeViewController: BaseViewController {
         button.setTextColor(.text(.black))
         button.setTextFont(.text(.text14))
         button.addTarget(self, action: #selector(allowLocationButtonTapped), for: .touchUpInside)
+    }
+    
+    private lazy var nextButton = DGTXButton { button in
+        button.setBackgroundColor(.background(.white))
+        button.setCornerRadius(.medium)
+        button.setLocalizedKey(.welcome(.nextButton))
+        button.setTextColor(.text(.black))
+        button.setTextFont(.text(.text14))
+        button.isHidden = true
+        button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
     
     private let viewModel = WelcomeViewControllerViewModel()
@@ -54,7 +65,8 @@ extension WelcomeViewController: ViewInitializtion {
         let allowLocationButtonBottomOffset = 24.0
         
         view.addSubviews(allowLocationButton,
-                         userLocationLabel)
+                         userLocationLabel,
+                         nextButton)
         
         allowLocationButton.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(.sideSpace(.large))
@@ -62,7 +74,12 @@ extension WelcomeViewController: ViewInitializtion {
             make.height.equalTo(.itemHeight(.buttonHeight))
         }
         
-        userLocationLabel.snp.makeConstraints { make in
+        [userLocationLabel, nextButton].embeddedInStackView { stack in
+            stack.axis = .horizontal
+            stack.setSpacing(.betwennItemSpace(.medium))
+        }
+        .storeIn(view)
+        .snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(.sideSpace(.large))
             make.center.equalToSuperview()
         }
@@ -86,6 +103,17 @@ extension WelcomeViewController: ViewInitializtion {
         viewModel.onDidChangeAuthorizationStatus = { [weak self] buttonTitle in
             self?.handleLocationButtonStateTitle(buttonTitle)
         }
+        
+        viewModel.onDidFailReceivePermissionOrLocation = { [weak self] in
+            self?.presentErrorAlert()
+        }
+        
+        viewModel
+            .nextButtonIsHidden
+            .sink { [weak self] isHidden in
+            self?.nextButton.isHidden = isHidden
+        }
+            .store(in: &bag)
     }
     
     func setUpView() {
@@ -104,6 +132,31 @@ extension WelcomeViewController {
     private func handleLocationButtonStateTitle(_ key: LOCKey) {
         allowLocationButton.setLOCKey(key)
     }
+    
+    private func presentErrorAlert() {
+        let alertTitle = LOCService.localize(with: .welcome(.errorAlertTitle))
+        let alertDesc = LOCService.localize(with: .welcome(.errorAlertDesc))
+        let searchButtonTitle = LOCService.localize(with: .welcome(.errorAlertSearchButton))
+        let skipButtonTitle = LOCService.localize(with: .welcome(.errorAlertSkipButton))
+        
+        let alert = UIAlertController(title: alertTitle,
+                                      message: alertDesc,
+                                      preferredStyle: .alert)
+        let searchAction = UIAlertAction(title: searchButtonTitle,
+                                         style: .default) { [weak self] _ in
+            self?.searchButtonTapped()
+        }
+        
+        let skipAction = UIAlertAction(title: skipButtonTitle,
+                                       style: .default) { [weak self] _ in
+            self?.skipButtonTapped()
+        }
+        
+        alert.addAction(searchAction)
+        alert.addAction(skipAction)
+        present(alert,
+                animated: true)
+    }
 }
 
 //MARK: - Actions
@@ -112,5 +165,18 @@ extension WelcomeViewController {
     
     @objc private func allowLocationButtonTapped() {
         viewModel.requestLocationStatus()
+    }
+    
+    @objc private func nextButtonTapped() {
+        AppNavigation(type: .root(settings: viewModel.mainScreenTransitionSettings))
+            .navigate()
+    }
+    
+    private func searchButtonTapped() {
+        
+    }
+    
+    private func skipButtonTapped() {
+        
     }
 }

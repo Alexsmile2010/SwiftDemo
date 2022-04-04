@@ -67,6 +67,7 @@ extension AppStyle {
     
     enum HeadingFontType {
         case headline38
+        case headline24
         case headline18
         
         
@@ -74,6 +75,8 @@ extension AppStyle {
             switch self {
             case .headline38:
                 return (.poppins(.semiBold), .size38)
+            case .headline24:
+                 return (.poppins(.medium), .size24)
             case .headline18:
                 return (.poppins(.medium), .size18)
             }

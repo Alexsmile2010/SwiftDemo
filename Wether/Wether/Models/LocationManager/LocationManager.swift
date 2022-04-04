@@ -26,12 +26,12 @@ final class LocationManager: NSObject {
     private var currentLocation: CLLocation?
     private var currentPlace: CLPlacemark?
     
+    
     weak var delegate: LocationManagerDelegate?
     
     override init() {
         super.init()
         manager.delegate = self
-        checkLocationManagerStatus()
     }
     
     deinit {
@@ -51,6 +51,14 @@ extension LocationManager {
             scanLocation()
         default:
             print("error")
+        }
+    }
+    
+    func wetherLocation() -> CLLocation {
+        if let currentLocation = currentLocation {
+            return currentLocation
+        } else {
+            return Global.defaultLocation
         }
     }
 }
@@ -114,10 +122,6 @@ extension LocationManager {
             
             completion(placemark)
         }
-    }
-    
-    private func checkLocationManagerStatus() {
-        
     }
 }
 

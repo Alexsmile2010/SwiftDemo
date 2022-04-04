@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class WelcomeViewControllerViewModel {
     
@@ -13,6 +14,16 @@ final class WelcomeViewControllerViewModel {
     
     var onDidReceiveUserLocation: ((_ location: String?) -> Void)?
     var onDidChangeAuthorizationStatus: ((_ locKey: LOCKey) -> Void)?
+    var onDidFailReceivePermissionOrLocation: (() -> Void)?
+    
+    var nextButtonIsHidden = CurrentValueSubject<Bool, Never>(true)
+    
+    var mainScreenTransitionSettings: RootTransitionSettings {
+        let location = locationManager.wetherLocation()
+        let viewModel = MainViewControllerViewModel(with: location)
+        return RootTransitionSettings(destinationType: .main(viewModel),
+                               basedOnNavigatonController: true)
+    }
     
     init() {
         locationManager.delegate = self
@@ -36,8 +47,10 @@ extension WelcomeViewControllerViewModel {
         if let city = city {
             let userLocation = "Your location is: \(city)"
             onDidReceiveUserLocation?(userLocation)
+            nextButtonIsHidden.send(false)
         } else {
             onDidReceiveUserLocation?("Your location not found")
+            nextButtonIsHidden.send(true)
         }
     }
     

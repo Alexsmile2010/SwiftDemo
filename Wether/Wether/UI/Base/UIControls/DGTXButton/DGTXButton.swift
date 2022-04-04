@@ -22,7 +22,7 @@ protocol DGTXButtonConfigurator: ViewConfigurator {
     func setTextColor(_ textColor: AppStyle.Colors, for state: UIControl.State)
     func setTextFont(_ textFont: AppStyle.Font)
     func setTintColor(_ tintColor: AppStyle.Colors)
-    func setImage(_ image: DGTXImageViewPresetImages, renderMode: UIImage.RenderingMode?)
+    func setImage(_ image: DGTXImagePresetImages, renderMode: UIImage.RenderingMode?)
     func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event)
     func setScaleFactor(_ scale: CGFloat)
 }
@@ -49,7 +49,7 @@ extension DGTXButtonConfigurator where Self: UIButton {
         self.tintColor = tintColor.color
     }
     
-    func setImage(_ image: DGTXImageViewPresetImages, renderMode: UIImage.RenderingMode?) {
+    func setImage(_ image: DGTXImagePresetImages, renderMode: UIImage.RenderingMode?) {
         setImage(image.image?.withRenderingMode(renderMode ?? .alwaysTemplate), for: .normal)
     }
     
@@ -75,12 +75,12 @@ class DGTXButton: UIButton {
         setLOCKey(key)
     }
     
-    init(presetImage preset: DGTXImageViewPresetImages, renderMode: UIImage.RenderingMode = .alwaysTemplate) {
+    init(presetImage preset: DGTXImagePresetImages, renderMode: UIImage.RenderingMode = .alwaysTemplate) {
         super.init(frame: .zero)
         setPresetImage(preset, renderMode: renderMode)
     }
     
-    init(presetImage preset: DGTXImageViewPresetImages, LOCKey key: LOCKey, renderMode: UIImage.RenderingMode = .alwaysTemplate) {
+    init(presetImage preset: DGTXImagePresetImages, LOCKey key: LOCKey, renderMode: UIImage.RenderingMode = .alwaysTemplate) {
         super.init(frame: .zero)
         setPresetImage(preset, renderMode: renderMode)
         setLOCKey(key)
@@ -91,7 +91,7 @@ class DGTXButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func setPresetImage(_ pressetImage: DGTXImageViewPresetImages, renderMode: UIImage.RenderingMode = .alwaysTemplate, newWidth: AppLayout? = nil) {
+    func setPresetImage(_ pressetImage: DGTXImagePresetImages, renderMode: UIImage.RenderingMode = .alwaysTemplate, newWidth: AppLayout? = nil) {
         if let newWidth = newWidth {
             setImage(pressetImage.image?.resizeImage(newWidth: newWidth.value)?.withRenderingMode(renderMode), for: .normal)
         } else {

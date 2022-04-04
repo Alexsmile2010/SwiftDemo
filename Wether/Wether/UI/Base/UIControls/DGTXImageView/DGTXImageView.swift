@@ -17,7 +17,7 @@ class DGTXImageView: UIImageView {
         setupView()
     }
     
-    init(withPresetImage preset: DGTXImageViewPresetImages, renderMode: UIImage.RenderingMode = .alwaysTemplate) {
+    init(withPresetImage preset: DGTXImagePresetImages, renderMode: UIImage.RenderingMode = .alwaysTemplate) {
         super.init(frame: .zero)
         setupView()
         applyImagePreset(preset, renderMode: renderMode)
@@ -28,7 +28,7 @@ class DGTXImageView: UIImageView {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func applyImagePreset(_ preset: DGTXImageViewPresetImages, renderMode: UIImage.RenderingMode = .alwaysTemplate) {
+    func applyImagePreset(_ preset: DGTXImagePresetImages, renderMode: UIImage.RenderingMode = .alwaysTemplate) {
         image = preset.image?.withRenderingMode(renderMode)
     }
     
@@ -51,11 +51,11 @@ protocol DGTXImageViewConfigurator: ViewConfigurator {
     var image: UIImage? { get set }
     var contentMode: UIView.ContentMode { get set }
     
-    func setImage(preset: DGTXImageViewPresetImages)
+    func setImage(preset: DGTXImagePresetImages)
 }
 
 extension DGTXImageViewConfigurator where Self: UIImageView {
-    func setImage(preset: DGTXImageViewPresetImages) {
+    func setImage(preset: DGTXImagePresetImages) {
         self.image = preset.image
     }
 }

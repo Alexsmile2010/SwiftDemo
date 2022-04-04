@@ -11,3 +11,8 @@
 "Welcome.enableLocation" = "Enable location";
 "Welcome.updateLocation" = "Update location";
 "Welcome.selectLocation" = "Select location";
+"Welcome.errorAlertTitle" = "Oups!";
+"Welcome.errorAlertDesc" = "Seems like your location wasn`t found or you not allow to use it. You can use search for choose location or skip it. If you skip app will select default location - Apple Campus";
+"Welcome.errorAlertSeacrhButton" = "Search";
+"Welcome.errorAlertSkipButton" = "Skip";
+"Welcome.nextButtonTitle" = "Go";

@@ -27,7 +27,7 @@ extension NetworkEnvironment {
     var route: String {
         switch self {
         case .development:
-            return "https://pro.openweathermap.org"
+            return "https://api.openweathermap.org"
         }
     }
 }

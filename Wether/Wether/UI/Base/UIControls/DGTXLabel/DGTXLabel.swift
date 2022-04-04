@@ -14,6 +14,7 @@ protocol DGTXLabelConfigurator: ViewConfigurator {
     var lineBreakMode: NSLineBreakMode { get set }
     var attributedText: NSAttributedString? { get set }
     var isUserInteractionEnabled: Bool { get set }
+    var adjustsFontSizeToFitWidth: Bool { get set }
     
     func setLocalizedKey(_ key: LOCKey)
     func setTextColor(_ textColor: AppStyle.Colors)

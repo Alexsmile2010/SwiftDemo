@@ -12,6 +12,7 @@ extension AppStyle {
     indirect enum Colors {
         case background(BackgroundColorType)
         case text(TextColorType)
+        case native(UIColor)
         
         var color: UIColor {
             switch self {
@@ -19,6 +20,8 @@ extension AppStyle {
                 return type.color
             case .text(let type):
                 return type.color
+            case .native(let color):
+                return color
             }
         }
         

@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class BaseViewController: UIViewController {
 
+    lazy var bag = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

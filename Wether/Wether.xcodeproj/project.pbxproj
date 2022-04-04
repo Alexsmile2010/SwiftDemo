@@ -76,6 +76,14 @@
 		288C6BC727F5E4B9001207E7 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 288C6BC327F5E4B9001207E7 /* Poppins-SemiBold.ttf */; };
 		288C6BC927F6F397001207E7 /* WelcomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BC827F6F397001207E7 /* WelcomeViewControllerViewModel.swift */; };
 		288C6BCC27F6F3D1001207E7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BCB27F6F3D1001207E7 /* LocationManager.swift */; };
+		288C6BCF27F876C8001207E7 /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BCE27F876C8001207E7 /* SearchLocationViewController.swift */; };
+		288C6BD127F87725001207E7 /* SearchLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BD027F87725001207E7 /* SearchLocationViewModel.swift */; };
+		288C6BD527FACFCC001207E7 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BD427FACFCC001207E7 /* Presenter.swift */; };
+		288C6BD827FAD09A001207E7 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BD727FAD09A001207E7 /* BaseNavigationController.swift */; };
+		288C6BDA27FAE44A001207E7 /* MainViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BD927FAE44A001207E7 /* MainViewControllerViewModel.swift */; };
+		288C6BDC27FB0D62001207E7 /* WetherNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BDB27FB0D61001207E7 /* WetherNetworkManager.swift */; };
+		288C6BDE27FB0D8B001207E7 /* OpenAPIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BDD27FB0D8B001207E7 /* OpenAPIRoutes.swift */; };
+		288C6BE027FB0F70001207E7 /* WetherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BDF27FB0F70001207E7 /* WetherEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +157,14 @@
 		288C6BC327F5E4B9001207E7 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		288C6BC827F6F397001207E7 /* WelcomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewControllerViewModel.swift; sourceTree = "<group>"; };
 		288C6BCB27F6F3D1001207E7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		288C6BCE27F876C8001207E7 /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
+		288C6BD027F87725001207E7 /* SearchLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewModel.swift; sourceTree = "<group>"; };
+		288C6BD427FACFCC001207E7 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		288C6BD727FAD09A001207E7 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		288C6BD927FAE44A001207E7 /* MainViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerViewModel.swift; sourceTree = "<group>"; };
+		288C6BDB27FB0D61001207E7 /* WetherNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WetherNetworkManager.swift; sourceTree = "<group>"; };
+		288C6BDD27FB0D8B001207E7 /* OpenAPIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAPIRoutes.swift; sourceTree = "<group>"; };
+		288C6BDF27FB0F70001207E7 /* WetherEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WetherEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +223,7 @@
 		280A2CF427F58E1F00789487 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				288C6BD327FACF97001207E7 /* Presenter */,
 				288C6BCA27F6F3B0001207E7 /* LocationManager */,
 				288C6B5627F5B033001207E7 /* Global */,
 				280A2CFC27F59B4600789487 /* Extensions */,
@@ -256,6 +273,7 @@
 		288C6A0127F59D54001207E7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				288C6BD627FAD09A001207E7 /* BaseNavigationController */,
 				288C6A7E27F5A835001207E7 /* UIControls */,
 				288C6A7927F59FC4001207E7 /* BaseViewConroller */,
 			);
@@ -315,6 +333,9 @@
 		288C6A1727F59D99001207E7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				288C6BDB27FB0D61001207E7 /* WetherNetworkManager.swift */,
+				288C6BDD27FB0D8B001207E7 /* OpenAPIRoutes.swift */,
+				288C6BDF27FB0F70001207E7 /* WetherEntity.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -334,6 +355,7 @@
 		288C6A7727F59F9F001207E7 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				288C6BCD27F876AB001207E7 /* SearchLocationViewContoller */,
 				280A2CF627F58E5200789487 /* WelcomeViewController */,
 				288C6A7827F59FAE001207E7 /* MainViewController */,
 			);
@@ -344,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				288C6A7C27F59FE9001207E7 /* MainViewController.swift */,
+				288C6BD927FAE44A001207E7 /* MainViewControllerViewModel.swift */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
@@ -583,6 +606,31 @@
 			path = LocationManager;
 			sourceTree = "<group>";
 		};
+		288C6BCD27F876AB001207E7 /* SearchLocationViewContoller */ = {
+			isa = PBXGroup;
+			children = (
+				288C6BCE27F876C8001207E7 /* SearchLocationViewController.swift */,
+				288C6BD027F87725001207E7 /* SearchLocationViewModel.swift */,
+			);
+			path = SearchLocationViewContoller;
+			sourceTree = "<group>";
+		};
+		288C6BD327FACF97001207E7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				288C6BD427FACFCC001207E7 /* Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		288C6BD627FAD09A001207E7 /* BaseNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				288C6BD727FAD09A001207E7 /* BaseNavigationController.swift */,
+			);
+			path = BaseNavigationController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -677,8 +725,10 @@
 				288C6A7027F59D99001207E7 /* Response.swift in Sources */,
 				288C6A4727F59D99001207E7 /* NetworkRouter.swift in Sources */,
 				288C6A7B27F59FD7001207E7 /* BaseViewController.swift in Sources */,
+				288C6BD827FAD09A001207E7 /* BaseNavigationController.swift in Sources */,
 				288C6A4E27F59D99001207E7 /* Atomic.swift in Sources */,
 				288C6AAF27F5A835001207E7 /* DGTXImageView.swift in Sources */,
+				288C6BD127F87725001207E7 /* SearchLocationViewModel.swift in Sources */,
 				288C6B6427F5B033001207E7 /* AppLayout.swift in Sources */,
 				288C6A6C27F59D99001207E7 /* NetworkEnvironment.swift in Sources */,
 				288C6B9427F5B297001207E7 /* UITableView+Extension.swift in Sources */,
@@ -688,6 +738,7 @@
 				288C6B9E27F5B297001207E7 /* UIViewController+Extension.swift in Sources */,
 				288C6AA527F5A835001207E7 /* DGTXView.swift in Sources */,
 				288C6BA927F5B298001207E7 /* UICollectionView+Extension.swift in Sources */,
+				288C6BE027FB0F70001207E7 /* WetherEntity.swift in Sources */,
 				288C6B9227F5B297001207E7 /* UIImage+Extension.swift in Sources */,
 				288C6B9627F5B297001207E7 /* UIStackView+Extension.swift in Sources */,
 				288C6BBE27F5DDC0001207E7 /* WelcomeLOCKeys.swift in Sources */,
@@ -697,15 +748,19 @@
 				288C6BA527F5B298001207E7 /* Date+Extensions.swift in Sources */,
 				288C6A7127F59D99001207E7 /* HTTPHeaders.swift in Sources */,
 				288C6B7327F5B22C001207E7 /* ImageRepresentable.swift in Sources */,
+				288C6BD527FACFCC001207E7 /* Presenter.swift in Sources */,
 				288C6A4F27F59D99001207E7 /* ParametersEncoder.swift in Sources */,
 				288C6B5F27F5B033001207E7 /* Constants.swift in Sources */,
 				288C6AAD27F5A835001207E7 /* DGTXTableView.swift in Sources */,
 				288C6A4927F59D99001207E7 /* Publishers+UploadPublisher.swift in Sources */,
+				288C6BDE27FB0D8B001207E7 /* OpenAPIRoutes.swift in Sources */,
 				280A2CDF27F58DD700789487 /* AppDelegate.swift in Sources */,
 				288C6B9D27F5B297001207E7 /* UIView+Extension.swift in Sources */,
 				288C6A4B27F59D99001207E7 /* Publishers+RetryOn.swift in Sources */,
 				288C6AA427F5A835001207E7 /* DGTXButton.swift in Sources */,
+				288C6BCF27F876C8001207E7 /* SearchLocationViewController.swift in Sources */,
 				288C6A4A27F59D99001207E7 /* Publishers+RetryInfinite.swift in Sources */,
+				288C6BDC27FB0D62001207E7 /* WetherNetworkManager.swift in Sources */,
 				288C6B7027F5B22C001207E7 /* GlobalProtocols.swift in Sources */,
 				288C6BA027F5B298001207E7 /* UITextfield+Extension.swift in Sources */,
 				288C6BBB27F5B7E5001207E7 /* GlobalPublishers.swift in Sources */,
@@ -725,6 +780,7 @@
 				288C6B9A27F5B297001207E7 /* CellConstructor.swift in Sources */,
 				288C6A7D27F59FE9001207E7 /* MainViewController.swift in Sources */,
 				288C6AA227F5A835001207E7 /* DGTXLabel.swift in Sources */,
+				288C6BDA27FAE44A001207E7 /* MainViewControllerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

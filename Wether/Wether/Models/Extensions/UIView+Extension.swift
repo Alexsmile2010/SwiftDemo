@@ -51,7 +51,7 @@ extension UIView {
         self.layer.maskedCorners = corners
     }
     
-    func addImage(preset: DGTXImageViewPresetImages, width: CGFloat, xScale: CGFloat, yScale: CGFloat) {
+    func addImage(preset: DGTXImagePresetImages, width: CGFloat, xScale: CGFloat, yScale: CGFloat) {
         let imageView = DGTXImageView(withPresetImage: preset, renderMode: .alwaysOriginal)
         addSubview(imageView)
         imageView.snp.makeConstraints { make in
