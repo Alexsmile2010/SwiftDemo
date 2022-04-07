@@ -25,7 +25,7 @@ extension OpenAPIRoutes: EndPointType {
     var path: String {
         switch self {
         case .wether(let location):
-            return "/data/2.5/onecall?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&exclude=hourly,daily&appid=\(Global.wetherAPIKey)"
+            return "/data/2.5/onecall?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&units=metric&lang=ua&appid=\(Global.wetherAPIKey)"
         }
     }
     
@@ -44,6 +44,4 @@ extension OpenAPIRoutes: EndPointType {
     var isTokensRefreshImplied: Bool {
         false
     }
-    
-    
 }

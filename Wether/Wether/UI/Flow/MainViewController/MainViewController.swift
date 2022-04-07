@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 final class MainViewController: BaseViewController {
     
@@ -48,7 +49,12 @@ final class MainViewController: BaseViewController {
     
     private lazy var wetherImageView = DGTXImageView { imageView in
         imageView.contentMode = .scaleAspectFit
-        imageView.setImage(preset: .search)
+    }
+    
+    private lazy var wetherDescLabel = DGTXLabel { label in
+        label.setTextFont(.text(.text12))
+        label.setTextColor(.text(.white))
+        label.textAlignment = .center
     }
     
     private var viewModel: MainViewControllerViewModel
@@ -104,8 +110,13 @@ extension MainViewController: ViewInitializtion {
         wetherInfoStackView.snp.makeConstraints { make in
             make.width.equalTo(view.bounds.width / 2)
         }
+        
+        let wetherIconDescStackView = [wetherImageView, wetherDescLabel].embeddedInStackView { stack in
+            stack.axis = .vertical
+            stack.setSpacing(.betwennItemSpace(.small))
+        }
 
-        [wetherImageView, wetherInfoStackView]
+        [wetherIconDescStackView, wetherInfoStackView]
             .embeddedInStackView { stack in
             stack.axis = .horizontal
         }.storeIn(contentStackView, basedOnEmptyView: false)
@@ -113,17 +124,35 @@ extension MainViewController: ViewInitializtion {
     }
     
     func setUpViewModel() {
-        
+        viewModel.onDidFinishLoadData = { [weak self] data in
+            self?.handleWetherData(data)
+        }
     }
     
     func setUpView() {
         setBackgroundColor(.background(.primary))
-        cityLabel.text = "Kyiv"
-        dateLabel.text = "15 Марта 2015"
-        temperatureLabel.text = "-5/1"
-        humidityLabel.text = "44%"
-        windLabel.text = "5m/s"
+        viewModel.getWether()
+    }
+}
+
+//MARK: - Private
+
+extension MainViewController {
+    private func handleWetherData(_ data: WetherEntity?) {
+        guard let data = data else {
+            return
+        }
         
+        cityLabel.text = data.timezone
+        dateLabel.text = data.currentDate
+        temperatureLabel.text = data.currentTemperature
+        windLabel.text = data.currentWind
+        humidityLabel.text = data.currentHumidity
+        wetherDescLabel.text = data.currentWetherDesc
+        
+        if let url = data.currentWetherIconUrl {
+            Nuke.loadImage(with: url, into: wetherImageView)
+        }
     }
 }
 

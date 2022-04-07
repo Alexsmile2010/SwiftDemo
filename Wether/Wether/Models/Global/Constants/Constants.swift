@@ -10,7 +10,7 @@ import CoreLocation
 
 
 struct Global {
-    static let wetherAPIKey = "0c45622ef7046cd6e18eb1681c43d1ad"
+    static let wetherAPIKey = "30743ec0e56204476448525d9245483c"
     
     ///Kyiv
     static let defaultLocation = CLLocation(latitude: 50.447479, longitude: 30.520048)

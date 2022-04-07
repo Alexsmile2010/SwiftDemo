@@ -6,7 +6,14 @@
 //
 
 import Foundation
+import CoreLocation
+import Combine
 
 struct WetherNetworkManager {
     let manager =  NetworkRouter<OpenAPIRoutes>()
+    
+    func getWether(from location: CLLocation) -> AnyPublisher<WetherEntity, NetworkError> {
+        manager.makeDataRequest(.wether(location))
+    }
+    
 }

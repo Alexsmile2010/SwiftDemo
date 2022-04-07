@@ -13,6 +13,8 @@
 		280A2CEB27F58DDB00789487 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280A2CE927F58DDB00789487 /* LaunchScreen.storyboard */; };
 		280A2CF827F58E7100789487 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A2CF727F58E7100789487 /* WelcomeViewController.swift */; };
 		280A2CFB27F59B1700789487 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 280A2CFA27F59B1700789487 /* SnapKit */; };
+		287A702D27FDAB2D0052BEFD /* CancelableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A702C27FDAB2D0052BEFD /* CancelableViewModel.swift */; };
+		287A703027FF03130052BEFD /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 287A702F27FF03130052BEFD /* Nuke */; };
 		288C6A4727F59D99001207E7 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6A0927F59D99001207E7 /* NetworkRouter.swift */; };
 		288C6A4927F59D99001207E7 /* Publishers+UploadPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6A0C27F59D99001207E7 /* Publishers+UploadPublisher.swift */; };
 		288C6A4A27F59D99001207E7 /* Publishers+RetryInfinite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6A0D27F59D99001207E7 /* Publishers+RetryInfinite.swift */; };
@@ -94,6 +96,7 @@
 		280A2CEA27F58DDB00789487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		280A2CEC27F58DDB00789487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		280A2CF727F58E7100789487 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		287A702C27FDAB2D0052BEFD /* CancelableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelableViewModel.swift; sourceTree = "<group>"; };
 		288C6A0927F59D99001207E7 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		288C6A0C27F59D99001207E7 /* Publishers+UploadPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publishers+UploadPublisher.swift"; sourceTree = "<group>"; };
 		288C6A0D27F59D99001207E7 /* Publishers+RetryInfinite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryInfinite.swift"; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				280A2CFB27F59B1700789487 /* SnapKit in Frameworks */,
+				287A703027FF03130052BEFD /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +274,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		287A702B27FDAB120052BEFD /* CancelableViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				287A702C27FDAB2D0052BEFD /* CancelableViewModel.swift */,
+			);
+			path = CancelableViewModel;
+			sourceTree = "<group>";
+		};
 		288C6A0127F59D54001207E7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				287A702B27FDAB120052BEFD /* CancelableViewModel */,
 				288C6BD627FAD09A001207E7 /* BaseNavigationController */,
 				288C6A7E27F5A835001207E7 /* UIControls */,
 				288C6A7927F59FC4001207E7 /* BaseViewConroller */,
@@ -649,6 +662,7 @@
 			name = Wether;
 			packageProductDependencies = (
 				280A2CFA27F59B1700789487 /* SnapKit */,
+				287A702F27FF03130052BEFD /* Nuke */,
 			);
 			productName = Wether;
 			productReference = 280A2CDB27F58DD700789487 /* Wether.app */;
@@ -680,6 +694,7 @@
 			mainGroup = 280A2CD227F58DD700789487;
 			packageReferences = (
 				280A2CF927F59B1700789487 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				287A702E27FF03130052BEFD /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = 280A2CDC27F58DD700789487 /* Products */;
 			projectDirPath = "";
@@ -758,6 +773,7 @@
 				288C6B9D27F5B297001207E7 /* UIView+Extension.swift in Sources */,
 				288C6A4B27F59D99001207E7 /* Publishers+RetryOn.swift in Sources */,
 				288C6AA427F5A835001207E7 /* DGTXButton.swift in Sources */,
+				287A702D27FDAB2D0052BEFD /* CancelableViewModel.swift in Sources */,
 				288C6BCF27F876C8001207E7 /* SearchLocationViewController.swift in Sources */,
 				288C6A4A27F59D99001207E7 /* Publishers+RetryInfinite.swift in Sources */,
 				288C6BDC27FB0D62001207E7 /* WetherNetworkManager.swift in Sources */,
@@ -1010,6 +1026,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		287A702E27FF03130052BEFD /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1017,6 +1041,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 280A2CF927F59B1700789487 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		287A702F27FF03130052BEFD /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 287A702E27FF03130052BEFD /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
