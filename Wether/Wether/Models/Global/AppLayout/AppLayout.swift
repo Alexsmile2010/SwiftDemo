@@ -76,6 +76,10 @@ enum ItemHeight: CGFloat {
     case separatorHeight = 1.0
     /// equal: 44.0
     case buttonHeight = 44.0
+    ///equal: 72
+    case hourlyCollectionViewHeight = 80.0
+    ///equal: 15
+    case hourlyCellLabelHeight = 15.0
 }
 
 enum AppLayoutCornerRadius: CGFloat {

@@ -31,41 +31,7 @@ struct WetherEntity: Codable {
     let hourly: [CurrentWether]?
     let daily: [DailyWether]?
     let alerts: [Alert]?
-    
-    var currentDate: String? {
-        return current?.date?.customFormat(.EEdyyyy)
-    }
-    
-    var currentTemperature: String? {
-        guard let temp = current?.temp else {
-            return "🌡 no data"
-        }
-        return "🌡 \(Int(temp)) ℃"
-    }
-    
-    var currentHumidity: String? {
-        guard let humidity = current?.humidity else {
-            return "💧 no data"
-        }
-        
-        return "💧 \(humidity) %"
-    }
-    
-    var currentWind: String? {
-        guard let wind = current?.windSpeed else {
-            return "🌬 no data"
-        }
-        
-        return "🌬 \(wind) M/S"
-    }
-    
-    var currentWetherIconUrl: URL? {
-        return current?.weather?.first?.iconUrl
-    }
-    
-    var currentWetherDesc: String? {
-        return current?.weather?.first?.description
-    }
+
 }
 
 // MARK: - Alert

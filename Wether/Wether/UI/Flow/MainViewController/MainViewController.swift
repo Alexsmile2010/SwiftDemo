@@ -15,47 +15,9 @@ final class MainViewController: BaseViewController {
         stack.setSpacing(.betwennItemSpace(.medium))
     }
     
-    private lazy var cityLabel = DGTXLabel { label in
-        label.setTextFont(.heading(.headline24))
-        label.setTextColor(.text(.white))
-    }
-    
-    private lazy var dateLabel = DGTXLabel { label in
-        label.setTextFont(.text(.text14))
-        label.setTextColor(.text(.white))
-    }
-    
-    private lazy var temperatureLabel = DGTXLabel { label in
-        label.setTextFont(.heading(.headline24))
-        label.setTextColor(.text(.white))
-    }
-    
-    private lazy var humidityLabel = DGTXLabel { label in
-        label.setTextFont(.heading(.headline24))
-        label.setTextColor(.text(.white))
-    }
-    
-    private lazy var windLabel = DGTXLabel { label in
-        label.setTextFont(.heading(.headline24))
-        label.setTextColor(.text(.white))
-    }
-    
-    private lazy var searchlocationButton = DGTXButton { button in
-        button.setImage(.search, renderMode: .alwaysTemplate)
-        button.setTintColor(.text(.white))
-        button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        button.addTarget(self, action: #selector(locationButtonTapped), for: .touchUpInside)
-    }
-    
-    private lazy var wetherImageView = DGTXImageView { imageView in
-        imageView.contentMode = .scaleAspectFit
-    }
-    
-    private lazy var wetherDescLabel = DGTXLabel { label in
-        label.setTextFont(.text(.text12))
-        label.setTextColor(.text(.white))
-        label.textAlignment = .center
-    }
+    private let wetherInfoView = CurrentWetherInfoView()
+    private let wetherLocationInfoView = WetherLocationInfoView()
+    private let wetherHourlyInfoView = HourlyWetherInfoView()
     
     private var viewModel: MainViewControllerViewModel
     
@@ -80,57 +42,46 @@ extension MainViewController: ViewInitializtion {
     
     func setUpConstraints() {
         
-        view.addSubviews(contentStackView)
+        view.addSubviews(contentStackView,
+                         wetherHourlyInfoView)
+        
         contentStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(.sideSpace(.large))
             make.topMargin.equalToSuperview().inset(.sideSpace(.medium))
         }
         
-        [cityLabel, searchlocationButton]
-            .embeddedInStackView { stack in
-                stack.axis = .horizontal
-                stack.setSpacing(.betwennItemSpace(.medium))
-            }
-            .storeIn(contentStackView, basedOnEmptyView: false)
-            
+        contentStackView.addArrangedSubview(wetherLocationInfoView)
+        contentStackView.addArrangedSubview(wetherInfoView)
         
-        searchlocationButton.snp.makeConstraints { make in
-            make.width.height.equalTo(.itemHeight(.buttonHeight))
+        wetherHourlyInfoView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(contentStackView.snp.bottom)
         }
-        
-        contentStackView.addArrangedSubview(dateLabel)
-        
-        let wetherInfoStackView = [temperatureLabel,
-                                   humidityLabel,
-                                   windLabel]
-            .embeddedInStackView { stack in
-            stack.axis = .vertical
-            }
-
-        wetherInfoStackView.snp.makeConstraints { make in
-            make.width.equalTo(view.bounds.width / 2)
-        }
-        
-        let wetherIconDescStackView = [wetherImageView, wetherDescLabel].embeddedInStackView { stack in
-            stack.axis = .vertical
-            stack.setSpacing(.betwennItemSpace(.small))
-        }
-
-        [wetherIconDescStackView, wetherInfoStackView]
-            .embeddedInStackView { stack in
-            stack.axis = .horizontal
-        }.storeIn(contentStackView, basedOnEmptyView: false)
-        
     }
     
     func setUpViewModel() {
-        viewModel.onDidFinishLoadData = { [weak self] data in
-            self?.handleWetherData(data)
+        viewModel
+            .onNeedToReloadCurrentWetherData = { [weak wetherInfoView] data in
+            wetherInfoView?
+                    .reloadData(with: data)
+        }
+        
+        viewModel
+            .onNeedToReloadWetherLocationData = { [weak wetherLocationInfoView] data in
+            wetherLocationInfoView?
+                    .reloadData(with: data)
+        }
+        
+        viewModel
+            .onNeedToRealoadHourlyWetherData = { [weak wetherHourlyInfoView] viewModel in
+            wetherHourlyInfoView?
+                    .reloadData(with: viewModel)
         }
     }
     
     func setUpView() {
         setBackgroundColor(.background(.primary))
+        wetherLocationInfoView.delegate = self
         viewModel.getWether()
     }
 }
@@ -139,28 +90,13 @@ extension MainViewController: ViewInitializtion {
 
 extension MainViewController {
     private func handleWetherData(_ data: WetherEntity?) {
-        guard let data = data else {
-            return
-        }
-        
-        cityLabel.text = data.timezone
-        dateLabel.text = data.currentDate
-        temperatureLabel.text = data.currentTemperature
-        windLabel.text = data.currentWind
-        humidityLabel.text = data.currentHumidity
-        wetherDescLabel.text = data.currentWetherDesc
-        
-        if let url = data.currentWetherIconUrl {
-            Nuke.loadImage(with: url, into: wetherImageView)
-        }
+
     }
 }
 
-//MARK: - Actions
-
-extension MainViewController {
+extension MainViewController: WetherLocationInfoViewDelegate {
     
-    @objc private func locationButtonTapped() {
-        
+    func wetherLocationInfoViewSearchButtonTapped() {
+        //do nothing
     }
 }

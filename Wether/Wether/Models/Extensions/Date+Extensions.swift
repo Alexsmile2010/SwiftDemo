@@ -18,7 +18,7 @@ extension Date {
     }
     
     func customFormat(_ format: DateFormatter.DateFormat) -> String {
-        return DateFormatter.custom(with: .EEdyyyy).string(from: self)
+        return DateFormatter.custom(with: format).string(from: self)
     }
 }
 
@@ -27,6 +27,8 @@ extension DateFormatter {
     enum DateFormat: String {
         ///mon. 19 2021
         case EEdyyyy = "EE .d yyyy"
+        ///00:00
+        case HHmm = "HH:mm"
     }
     
     static func defaultFormatter() -> DateFormatter {
