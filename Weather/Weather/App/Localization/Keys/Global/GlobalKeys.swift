@@ -13,6 +13,7 @@ enum GlobalLOCKeys {
 
 enum GlobalCommonLOCKeys: String {
     case welcome = "Global.welcome"
+    case retry = "Global.retry"
 }
 
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: - LocalizableKeys
 protocol LocalizableKeys {
@@ -31,6 +32,7 @@ enum LOCKey {
     case string(String)
     case global(GlobalLOCKeys)
     case welcome(WelcomeLOCKeys)
+    case error(ErrorLOCKeys)
 }
 
 extension LOCKey {
@@ -47,6 +49,8 @@ struct LOCService {
         case .global(let key):
             return key.value
         case .welcome(let key):
+            return key.value
+        case .error(let key):
             return key.value
         }
     }

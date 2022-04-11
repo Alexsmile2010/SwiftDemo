@@ -29,7 +29,7 @@ extension DailyWeatherViewModel {
     func dailyData(at indexPath: IndexPath) -> DailyDisplayInfoData {
         let item = data?[indexPath.row]
         
-        let day = item?.date?.customFormat(.EE)
+        let day = item?.date?.customFormat(.EEdyyyy)
         
         var temperature: String = ""
         

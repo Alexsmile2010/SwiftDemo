@@ -13,13 +13,13 @@ final class MainViewController: BaseViewController {
     private lazy var contentStackView = DGTXStackView { stack in
         stack.axis = .vertical
         stack.setSpacing(.betwennItemSpace(.medium))
-        stack.isHidden = true
     }
     
     private let weatherInfoView = CurrentWeatherInfoView()
     private let weatherLocationInfoView = WeatherLocationInfoView()
     private let weatherHourlyInfoView = HourlyWeatherInfoView()
     private let dailyWeatherInfoView = DailyWeatherInfoView()
+    private let loadingView = LoadingView()
     
     private var viewModel: MainViewControllerViewModel
     
@@ -46,7 +46,8 @@ extension MainViewController: ViewInitializtion {
         
         view.addSubviews(contentStackView,
                          weatherHourlyInfoView,
-                         dailyWeatherInfoView)
+                         dailyWeatherInfoView,
+                         loadingView)
         
         contentStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(.sideSpace(.large))
@@ -64,6 +65,10 @@ extension MainViewController: ViewInitializtion {
         dailyWeatherInfoView.snp.makeConstraints { make in
             make.top.equalTo(weatherHourlyInfoView.snp.bottom)
             make.leading.trailing.bottomMargin.equalToSuperview()
+        }
+        
+        loadingView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
     
@@ -100,6 +105,7 @@ extension MainViewController: ViewInitializtion {
     func setUpView() {
         setBackgroundColor(.background(.primary))
         weatherLocationInfoView.delegate = self
+        loadingView.applyState(.loading)
         viewModel.getWeather()
     }
 }
@@ -107,8 +113,16 @@ extension MainViewController: ViewInitializtion {
 //MARK: - Private
 
 extension MainViewController {
+    
     private func handleError(_ error: RequestError) {
-        //handle error and display error state
+        switch error {
+        case .timeout:
+            loadingView.applyState(.error(message: LOCService.localize(with: .error(.timeout))))
+        case .other:
+            loadingView.applyState(.error(message: LOCService.localize(with: .error(.requestError))))
+        case .none:
+            loadingView.applyState(.hidden)
+        }
     }
 }
 

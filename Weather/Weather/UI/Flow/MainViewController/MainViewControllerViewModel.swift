@@ -27,8 +27,6 @@ final class MainViewControllerViewModel: CancelableViewModel  {
     var onNeedToRealoadHourlyWeatherData: ((_ data: HourlyWeatherInfoViewModel) -> Void)?
     var onNeedToRealoadDailyWeatherData: ((_ data: DailyWeatherViewModel) -> Void)?
     
-    
-    
     init(with location: CLLocation) {
         self.location = location
     }
@@ -65,6 +63,7 @@ extension MainViewControllerViewModel {
 
 extension MainViewControllerViewModel {
     private func handleRequestResponse(with data: WeatherEntity) {
+        onDidFinishLoading?(.none)
         buildWeatherLocationInfoData(from: data)
         buildCurrentWeatherDisplayData(from: data.current)
         buildHourlyWeatherViewModel(from: data.hourly)

@@ -4,6 +4,7 @@
 //Common
 
 "Global.welcome" = "Welcome";
+"Global.retry" = "Retry";
 
 //MARK: - Welcome
 "Welcome.hello" = "Hello";
@@ -16,3 +17,7 @@
 "Welcome.errorAlertSeacrhButton" = "Search";
 "Welcome.errorAlertSkipButton" = "Skip";
 "Welcome.nextButtonTitle" = "Go";
+
+//MARK: - Error
+"Error.timeout" = "Request timeout, please try again";
+"Error.requestError" = "Something went wrong pls try again";
