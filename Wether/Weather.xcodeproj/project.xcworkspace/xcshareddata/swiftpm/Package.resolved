@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke",
+      "state" : {
+        "revision" : "7f73ceaeacd5df75a7994cd82e165ad9ff1815db",
+        "version" : "9.6.1"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+        "version" : "5.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}
