@@ -94,7 +94,6 @@
 		288C6BDC27FB0D62001207E7 /* WeatherNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BDB27FB0D61001207E7 /* WeatherNetworkManager.swift */; };
 		288C6BDE27FB0D8B001207E7 /* OpenAPIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BDD27FB0D8B001207E7 /* OpenAPIRoutes.swift */; };
 		288C6BE027FB0F70001207E7 /* WeatherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C6BDF27FB0F70001207E7 /* WeatherEntity.swift */; };
-		28CD042D2804244000C3DCE5 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28CD042C2804244000C3DCE5 /* Empty.xib */; };
 		28CD042F28042D1700C3DCE5 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD042E28042D1700C3DCE5 /* LoadingView.swift */; };
 		28CD04322804305B00C3DCE5 /* ErrorKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD04312804305B00C3DCE5 /* ErrorKeys.swift */; };
 /* End PBXBuildFile section */
@@ -187,7 +186,6 @@
 		288C6BDB27FB0D61001207E7 /* WeatherNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkManager.swift; sourceTree = "<group>"; };
 		288C6BDD27FB0D8B001207E7 /* OpenAPIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAPIRoutes.swift; sourceTree = "<group>"; };
 		288C6BDF27FB0F70001207E7 /* WeatherEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEntity.swift; sourceTree = "<group>"; };
-		28CD042C2804244000C3DCE5 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		28CD042E28042D1700C3DCE5 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		28CD04312804305B00C3DCE5 /* ErrorKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -435,7 +433,6 @@
 				2806B5182800345F00B1BA31 /* Views */,
 				288C6A7C27F59FE9001207E7 /* MainViewController.swift */,
 				288C6BD927FAE44A001207E7 /* MainViewControllerViewModel.swift */,
-				28CD042C2804244000C3DCE5 /* Empty.xib */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
@@ -776,7 +773,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				280A2CEB27F58DDB00789487 /* LaunchScreen.storyboard in Resources */,
-				28CD042D2804244000C3DCE5 /* Empty.xib in Resources */,
 				288C6BC727F5E4B9001207E7 /* Poppins-SemiBold.ttf in Resources */,
 				288C6B5527F5AF8B001207E7 /* Localizable.strings in Resources */,
 				280A2CE827F58DDB00789487 /* Assets.xcassets in Resources */,

@@ -27,6 +27,11 @@ final class MainViewControllerViewModel: CancelableViewModel  {
     var onNeedToRealoadHourlyWeatherData: ((_ data: HourlyWeatherInfoViewModel) -> Void)?
     var onNeedToRealoadDailyWeatherData: ((_ data: DailyWeatherViewModel) -> Void)?
     
+    var searchScreenNavigationSettings: ModalTransitionSettings  {
+        return ModalTransitionSettings(destinationType: .search,
+                                       basedOnNavigatonController: true)
+    }
+    
     init(with location: CLLocation) {
         self.location = location
     }
